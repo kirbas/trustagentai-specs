@@ -1,5 +1,8 @@
 # TrustAgentAI Project Bible
 
+> **Source completeness:** This is the surviving introductory excerpt, not a restored full preface. The history reachable from `main` contains only the original addition, ending inside an unclosed code block. This update closes the block without inventing missing original text. See [Document Status](Document-Status.md) and [repository navigation](../README.md).
+
+
 ## Preface
 
 TrustAgentAI is an open architecture for **cryptographically verifiable accountability of AI-driven financial actions**.
@@ -118,3 +121,5 @@ Preservation
         │
         ▼
 Independent Verification
+```
+
