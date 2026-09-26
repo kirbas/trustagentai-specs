@@ -1,5 +1,8 @@
 # TrustAgentAI Project Bible — Terminology
 
+> **Source completeness:** This is an incomplete vocabulary excerpt, not a complete canonical glossary. The history reachable from `main` contains only the original addition, ending inside an unclosed code block. This update closes the block without inventing missing original text. See [Document Status](Document-Status.md) and [repository navigation](../README.md).
+
+
 ## Purpose
 
 This document defines the canonical architectural terminology used throughout the **TrustAgentAI Project Bible**.
@@ -51,3 +54,5 @@ Examples include:
 
 ```text
 "Agent A authorized Payment P."
+```
+
