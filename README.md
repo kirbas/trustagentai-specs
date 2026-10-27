@@ -1,24 +1,41 @@
 # TrustAgentAI — Proof, not logs
 
-TrustAgentAI explores portable, independently verifiable evidence for consequential AI-driven actions. This repository contains architectural reference material and experimental TAIP specifications.
+TrustAgentAI is developing infrastructure to collect, independently witness, preserve, and verify evidence of agent actions across systems.
 
-**Current milestone: an external team connects one action to the mechanism and independently verifies the exported evidence.**
+The product goal is a portable evidence package linking authorization, an agent's request, witness observations, and the external system's response. A verifier should be able to evaluate each claim and see missing evidence and trust assumptions.
+
+**Current milestone: one external team connects one action and independently verifies its exported evidence.**
 
 ## Start here
 
-1. [First external integration — scope, acceptance criteria, and 30-day plan](docs/FIRST_EXTERNAL_INTEGRATION.md)
+1. [Product direction and first external integration — scope, acceptance criteria, and 30-day plan](docs/FIRST_EXTERNAL_INTEGRATION.md)
 2. [Document status — architecture, drafts, and implementation claims](project-bible/Document-Status.md)
 3. [TAIP drafts — status and navigation](spec/README.md)
 
-Expansion of the Project Bible and TAIP is paused for the 30-day integration cycle. Corrections, pilot blockers, and confirmed security issues remain in scope. Existing architectural requirements are preserved as design reference; they are not evidence that a released implementation satisfies them.
+## Product focus
+
+| Capability | Intended pilot result |
+| --- | --- |
+| Collect | Link an authorization decision, request, and external API response using stable identifiers; retain original source artifacts |
+| Independently witness | Attest to specified received artifacts or commitments, with the witness operator and control domain disclosed |
+| Preserve | Retain evidence and verification dependencies across restarts; make configured retention, access, and historical commitments explicit |
+| Verify | Export a package and explain which claims are supported, contradicted, or inconclusive without access to TrustAgentAI's internal database |
+
+The initial customer hypothesis is an AP automation or B2B finance platform with an agent-enabled workflow. The proposed pilot action is creating a supplier payout request in a partner's sandbox. Request creation and payment settlement are different claims.
+
+Existing signed artifacts, including AP2 mandates and receipts, are potential evidence sources. Protocol adapters and compatibility are planned work unless supported by a tested release. We do not claim that portable dispute evidence or cryptographically protected logs are unique to TrustAgentAI.
+
+Expansion of the Project Bible and TAIP remains paused during the integration cycle. Corrections, pilot blockers, and confirmed security issues remain in scope. The Bible is architectural reference, not evidence of implemented capabilities.
 
 ## Implementation status
 
-This is a documentation repository, not an SDK or a runnable integration. The implementation repository, reproducible commit, package version, evidence-format version, and tested setup/verification commands must be recorded at pilot kickoff. They have not been verified for this documentation update.
+This repository contains documentation and experimental specifications. The candidate implementation is [trustagent-a2a-protocol](https://github.com/kirbas/trustagent-a2a-protocol). A source-only review used [commit 8493f533](https://github.com/kirbas/trustagent-a2a-protocol/tree/8493f5330fec94914dd8d92ee648f49fe9b1477d); runtime behavior and a deployable pilot release were not validated by that review.
 
-The integration plan retains Intent → Acceptance → Execution, inline witness, explicit degraded behavior, and the threat-model → decision → test discipline of Dispute Hardening. Each behavior must be confirmed in the selected implementation. An inline co-signer does not automatically establish an independent witness, and observing an action does not establish enforcement.
+Before integration, record a reproducible implementation commit, package version, evidence-format version, setup and verification commands, and passing checks for every selected component. The [working plan](docs/FIRST_EXTERNAL_INTEGRATION.md) lists readiness gates. No completed external pilot is recorded in this repository.
 
-**Proof, not logs** describes the objective: verify defined evidence claims with explicit trust assumptions. Cryptographic integrity does not by itself establish authorization, complete history, or the truth of a business event.
+Retain Intent → Acceptance → Execution, scoped witness observations, explicit degraded behavior, and threat model → decision → test. Observation does not establish enforcement; an inline co-signer does not automatically establish independent control.
+
+**Proof, not logs** describes bounded, independently evaluable claims. A valid signature does not by itself establish authorization, a complete history, or the truth of a business event. A witnessed request does not establish successful execution.
 
 ## Project Bible navigation
 
@@ -38,7 +55,7 @@ The Bible is a reference architecture, not a prerequisite reading list for a pil
 
 ## Known documentation limitations
 
-- Preface, Document Status, and Terminology were originally committed with unclosed code fences. This update repairs the formatting and identifies the surviving source as incomplete; it does not invent missing original text.
+- Preface, Document Status, and Terminology were originally committed with unclosed code fences. An earlier documentation update repaired the formatting and identified the surviving source as incomplete; it did not invent missing original text.
 - Two Chapter 10 drafts exist. Navigation above uses the filename already referenced by Chapter 16. The [alternative Chapter 10 draft](project-bible/10-Checkpoint-and-External-Anchor-Specification.md) remains available. No semantic reconciliation or formal supersession is claimed in this update.
 - TAIP documents are experimental drafts. Normative language within a draft does not establish stable conformance or implemented behavior.
 
